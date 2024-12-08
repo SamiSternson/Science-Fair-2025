@@ -19,8 +19,8 @@ def measure_angle_right():
     result, image = cam.read()
     print(result)
     gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    gray_image=cv2.medianBlur(gray_image[ 240:480, 200:640], 5)
-    img_blur = cv2.GaussianBlur(gray_image, (5, 5), 0)
+    gray_image=cv2.medianBlur(gray_image[ 50:480, 200:-1], 15)
+    img_blur = cv2.GaussianBlur(gray_image, (15, 15), 0)
     dges = cv2.Canny(image=img_blur, threshold1=100, threshold2=200)
     zipped = np.dstack((gray_image, dges))
     x = []
@@ -62,8 +62,8 @@ def measure_angle_left():
     result, image = cam.read()
     print(result)
     gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    gray_image=cv2.medianBlur(gray_image[240:480, 0:400], 5)
-    img_blur = cv2.GaussianBlur(gray_image, (5, 5), 0)
+    gray_image=cv2.medianBlur(gray_image[50:480, 0:400], 15)
+    img_blur = cv2.GaussianBlur(gray_image, (15, 15), 0)
     dges = cv2.Canny(image=img_blur, threshold1=100, threshold2=200)
     zipped = np.dstack((gray_image, dges))
     x = []
